@@ -66,10 +66,12 @@ os.makedirs("output", exist_ok=True)
 
 model = YOLO("yolov8n.pt")
 
-cap = cv2.VideoCapture("traffic-2.mp4")
+stream_url = "http://192.168.43.34:81/stream" 
+
+cap = cv2.VideoCapture(stream_url)
 
 if not cap.isOpened():
-    print("ERROR: Could not open video file")
+    print("Error: Could not open the ESP32-CAM video stream. Check the URL or Wi-Fi connection.")
     exit()
 
 
